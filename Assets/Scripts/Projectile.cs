@@ -25,8 +25,8 @@ public class Projectile : MonoBehaviour
 
     private void Update()
     {
-        // Move straight forward along X axis
-        transform.Translate(Vector3.right * speed * Time.deltaTime, Space.World);
+        // Move along local forward so spread-shot and angled lasers travel in their rotated direction
+        transform.Translate(Vector3.forward * speed * Time.deltaTime, Space.Self);
 
         // Check if projectile has traveled off-screen
         CheckViewportBounds();
@@ -53,8 +53,19 @@ public class Projectile : MonoBehaviour
         if (other.CompareTag("Asteroid") || other.CompareTag("Enemy"))
         {
             Debug.Log("Projectile impacted target: " + other.name);
-            Destroy(other.gameObject); // Destroy target
-            Destroy(gameObject);       // Destroy laser
+
+            // Call the death sequence on the hit object (handles mesh hiding + sprite explosion spawning)
+            DestructibleObject destructible = other.GetComponentInParent<DestructibleObject>();
+            if (destructible != null)
+            {
+                destructible.TriggerDeathSequence();
+            }
+            else
+            {
+                Destroy(other.gameObject); // Fallback destroy if script is missing
+            }
+
+            Destroy(gameObject); // Destroy the laser projectile
         }
     }
 }

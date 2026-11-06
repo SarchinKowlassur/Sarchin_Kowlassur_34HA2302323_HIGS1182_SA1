@@ -2,18 +2,23 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Controls Main Menu interactions, scene transitions, and application exit.
+/// Controls Main Menu interactions, scene transitions, audio, and application exit.
 /// </summary>
 public class MainMenuManager : MonoBehaviour
 {
     [Header("Scene Names")]
     [SerializeField] private string gameplaySceneName = "GameplayScene";
 
-
     private void Start()
     {
         // Ensure game time is running normally
         Time.timeScale = 1f;
+
+        // Play menu music when entering the Main Menu scene
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayMenuMusic();
+        }
     }
 
     // Loads the main gameplay scene. Hook this to the START button.

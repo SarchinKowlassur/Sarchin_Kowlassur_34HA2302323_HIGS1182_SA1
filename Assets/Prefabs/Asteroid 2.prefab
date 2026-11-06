@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5697807068659415667}
   - component: {fileID: 2363124189508810115}
   - component: {fileID: 5326732206735181076}
+  - component: {fileID: 2127793037053536458}
   m_Layer: 0
   m_Name: Asteroid 2
   m_TagString: Asteroid
@@ -127,3 +128,18 @@ MonoBehaviour:
   minRotationSpeed: 20
   maxRotationSpeed: 100
   destroyXOffset: 25
+--- !u!114 &2127793037053536458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4007432714569345037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8007a31c0aa87204785fe17cf075c2ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderers:
+  - {fileID: 5697807068659415667}
+  deathEffectPrefab: {fileID: 5462726612409534870, guid: 1cfe9b5747a0f1343a8fff04d1b74e22, type: 3}

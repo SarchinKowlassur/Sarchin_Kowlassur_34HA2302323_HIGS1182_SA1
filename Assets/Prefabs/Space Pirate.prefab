@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6130609001306326958}
   - component: {fileID: 5357287090815638763}
   - component: {fileID: 6942876085493294801}
+  - component: {fileID: 8016394580873779069}
   m_Layer: 0
   m_Name: Space Pirate
   m_TagString: Enemy
@@ -152,3 +153,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &8016394580873779069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6043339216129458798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8007a31c0aa87204785fe17cf075c2ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderers:
+  - {fileID: 3992374453354789435}
+  deathEffectPrefab: {fileID: 4080544142056006612, guid: bf1633073eb44b94abd86c1ba3e042ea, type: 3}

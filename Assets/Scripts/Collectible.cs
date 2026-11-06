@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>
-/// Controls collectible scrap movement, floating animation, and collection logic.
+/// Controls collectible scrap movement, floating animation, audio, and collection logic.
 /// </summary>
 public class Collectible : MonoBehaviour
 {
@@ -52,6 +52,12 @@ public class Collectible : MonoBehaviour
 
         isCollected = true;
         Debug.Log("Scrap collected by Player!");
+
+        // Play Scrap Pickup SFX via AudioManager
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayScrapPickup();
+        }
 
         // Award points
         if (GameManager.Instance != null)

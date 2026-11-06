@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>
-/// Controls enemy drone AI logic and player tracking
+/// Controls enemy drone AI logic and player tracking without interfering with death collisions.
 /// </summary>
 public class EnemyAI : MonoBehaviour
 {
@@ -56,19 +56,6 @@ public class EnemyAI : MonoBehaviour
 
         if (mainCameraTransform != null && transform.position.x < mainCameraTransform.position.x - destroyXOffset)
         {
-            Destroy(gameObject);
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("Player collided with Enemy Drone!");
-            if (GameManager.Instance != null)
-            {
-                GameManager.Instance.GameOver(false);
-            }
             Destroy(gameObject);
         }
     }
